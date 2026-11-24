@@ -1,0 +1,11 @@
+@if (peopleService.loading()) {
+  <p>Chargement de l'annuaire…</p>
+} @else if (peopleService.error(); as message) {
+  <p class="text-red-700">{{ message }}</p>
+} @else {
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    @for (person of peopleService.people(); track person.login.uuid) {
+      <app-person-card [person]="person" />
+    }
+  </div>
+}
