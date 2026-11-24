@@ -1,5 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormField, form } from '@angular/forms/signals';
+import { FavoritesService } from '../favorites.service';
 import { PeopleService } from '../people.service';
 import { PersonCard } from '../person-card/person-card';
 
@@ -10,6 +11,7 @@ import { PersonCard } from '../person-card/person-card';
 })
 export class PeopleList {
   readonly peopleService = inject(PeopleService);
+  readonly favoritesService = inject(FavoritesService);
 
   filters = signal({ search: '' });
   filtersForm = form(this.filters);

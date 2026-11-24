@@ -1,4 +1,13 @@
-<article class="rounded-lg bg-white p-4 text-center shadow">
+<article class="relative rounded-lg bg-white p-4 text-center shadow">
+  <button
+    type="button"
+    class="absolute top-2 right-3 cursor-pointer text-2xl text-[#b8860b]"
+    aria-label="Favori"
+    [attr.aria-pressed]="favorite()"
+    (click)="toggleFavorite.emit(person())"
+  >
+    {{ favorite() ? '★' : '☆' }}
+  </button>
   <a [routerLink]="['/personnes', person().login.uuid]">
     <img
       class="mx-auto h-24 w-24 rounded-full"

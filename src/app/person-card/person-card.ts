@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Person } from '../models/person.model';
 
@@ -9,4 +9,6 @@ import { Person } from '../models/person.model';
 })
 export class PersonCard {
   person = input.required<Person>();
+  favorite = input(false);
+  toggleFavorite = output<Person>();
 }

@@ -14,7 +14,11 @@
   </div>
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     @for (person of visiblePeople(); track person.login.uuid) {
-      <app-person-card [person]="person" />
+      <app-person-card
+        [person]="person"
+        [favorite]="favoritesService.isFavorite(person.login.uuid)"
+        (toggleFavorite)="favoritesService.toggle($event)"
+      />
     } @empty {
       <p>Aucune correspondance.</p>
     }
