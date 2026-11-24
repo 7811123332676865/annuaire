@@ -20,6 +20,10 @@ export class PeopleService {
     this.load();
   }
 
+  add(person: Person): void {
+    this.peopleState.update((people) => [person, ...people]);
+  }
+
   async load(): Promise<void> {
     if (this.peopleState().length > 0) return;
     this.loadingState.set(true);
