@@ -1,0 +1,30 @@
+<a routerLink="/" class="text-blue-700 underline">← Retour à l'annuaire</a>
+
+@if (peopleService.loading()) {
+  <p class="mt-4">Chargement de l'annuaire…</p>
+} @else if (peopleService.error(); as message) {
+  <p class="mt-4 text-red-700">{{ message }}</p>
+} @else if (person(); as p) {
+  <article class="mt-4 max-w-xl rounded-lg bg-white p-6 shadow">
+    <img
+      class="h-32 w-32 rounded-full"
+      [src]="p.picture.large"
+      [alt]="p.name.first + ' ' + p.name.last"
+    />
+    <h2 class="mt-6 text-2xl font-bold">{{ p.name.first }} {{ p.name.last }}</h2>
+    <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+      <dt class="font-bold">Âge</dt>
+      <dd>{{ p.dob.age }} ans</dd>
+      <dt class="font-bold">Email</dt>
+      <dd>{{ p.email }}</dd>
+      <dt class="font-bold">Téléphone</dt>
+      <dd>{{ p.phone }}</dd>
+      <dt class="font-bold">Portable</dt>
+      <dd>{{ p.cell }}</dd>
+      <dt class="font-bold">Ville</dt>
+      <dd>{{ p.location.city }}, {{ p.location.country }}</dd>
+    </dl>
+  </article>
+} @else {
+  <p class="mt-4">Personne introuvable</p>
+}
