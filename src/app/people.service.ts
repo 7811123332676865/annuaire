@@ -1,4 +1,4 @@
-import { Service, inject, signal } from '@angular/core';
+import { Service, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { PeopleResponse, Person } from './models/person.model';
@@ -13,6 +13,7 @@ export class PeopleService {
   private readonly errorState = signal<string | null>(null);
 
   readonly people = this.peopleState.asReadonly();
+  readonly count = computed(() => this.peopleState().length);
   readonly loading = this.loadingState.asReadonly();
   readonly error = this.errorState.asReadonly();
 
