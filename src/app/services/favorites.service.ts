@@ -1,5 +1,5 @@
 import { Service, computed, effect, signal } from '@angular/core';
-import { Person } from './models/person.model';
+import { Person } from '../models/person.model';
 
 @Service()
 export class FavoritesService {

@@ -1,7 +1,7 @@
 import { Service, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { PeopleResponse, Person } from './models/person.model';
+import { PeopleResponse, Person } from '../models/person.model';
 
 @Service()
 export class PeopleService {

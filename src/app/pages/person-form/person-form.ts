@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormField, FormRoot, email, form, max, min, minLength, required } from '@angular/forms/signals';
-import { FieldError } from '../field-error/field-error';
-import { PeopleService } from '../people.service';
+import { FieldError } from '../../components/field-error/field-error';
+import { PeopleService } from '../../services/people.service';
 
 @Component({
   imports: [FieldError, FormField, FormRoot],

@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
-import { FavoritesService } from '../favorites.service';
-import { PeopleService } from '../people.service';
-import { PersonCard } from '../person-card/person-card';
+import { FavoritesService } from '../../services/favorites.service';
+import { PeopleService } from '../../services/people.service';
+import { PersonCard } from '../../components/person-card/person-card';
 
 @Component({
   imports: [PersonCard],
