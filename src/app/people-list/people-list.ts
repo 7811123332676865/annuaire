@@ -13,13 +13,15 @@ export class PeopleList {
   readonly peopleService = inject(PeopleService);
   readonly favoritesService = inject(FavoritesService);
 
-  filters = signal({ search: '' });
+  filters = signal({ search: '', gender: 'all' });
   filtersForm = form(this.filters);
 
   visiblePeople = computed(() => {
     const search = this.filters().search.trim().toLowerCase();
+    const gender = this.filters().gender;
     return this.peopleService
       .people()
+      .filter((person) => gender === 'all' || person.gender === gender)
       .filter((person) => `${person.name.first} ${person.name.last}`.toLowerCase().includes(search));
   });
 }

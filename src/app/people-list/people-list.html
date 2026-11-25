@@ -11,6 +11,16 @@
       class="rounded border border-gray-400 bg-white px-2 py-1"
       [formField]="filtersForm.search"
     />
+    <label for="gender">Genre</label>
+    <select
+      id="gender"
+      class="rounded border border-gray-400 bg-white px-2 py-1"
+      [formField]="filtersForm.gender"
+    >
+      <option value="all">Tous</option>
+      <option value="female">Femmes</option>
+      <option value="male">Hommes</option>
+    </select>
   </div>
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     @for (person of visiblePeople(); track person.login.uuid) {
