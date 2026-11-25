@@ -18,9 +18,11 @@
       <dt class="font-bold">Email</dt>
       <dd>{{ p.email }}</dd>
       <dt class="font-bold">Téléphone</dt>
-      <dd>{{ p.phone }}</dd>
-      <dt class="font-bold">Portable</dt>
-      <dd>{{ p.cell }}</dd>
+      <dd>{{ p.phone || 'Non renseigné' }}</dd>
+      @if (p.cell) {
+        <dt class="font-bold">Portable</dt>
+        <dd>{{ p.cell }}</dd>
+      }
       <dt class="font-bold">Ville</dt>
       <dd>{{ p.location.city }}, {{ p.location.country }}</dd>
     </dl>
