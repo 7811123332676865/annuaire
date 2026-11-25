@@ -3,15 +3,11 @@
 <form class="flex max-w-90 flex-col gap-1" [formRoot]="contactForm">
   <label for="first">Prénom</label>
   <input id="first" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.first" />
-  @if (contactForm.first().touched() && contactForm.first().errors()[0]; as error) {
-    <p class="text-red-700">{{ error.message }}</p>
-  }
+  <app-field-error [field]="contactForm.first" />
 
   <label for="last">Nom</label>
   <input id="last" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.last" />
-  @if (contactForm.last().touched() && contactForm.last().errors()[0]; as error) {
-    <p class="text-red-700">{{ error.message }}</p>
-  }
+  <app-field-error [field]="contactForm.last" />
 
   <label for="gender">Genre</label>
   <select id="gender" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.gender">
@@ -21,24 +17,18 @@
 
   <label for="age">Âge</label>
   <input id="age" type="number" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.age" />
-  @if (contactForm.age().touched() && contactForm.age().errors()[0]; as error) {
-    <p class="text-red-700">{{ error.message }}</p>
-  }
+  <app-field-error [field]="contactForm.age" />
 
   <label for="email">Email</label>
   <input id="email" type="email" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.email" />
-  @if (contactForm.email().touched() && contactForm.email().errors()[0]; as error) {
-    <p class="text-red-700">{{ error.message }}</p>
-  }
+  <app-field-error [field]="contactForm.email" />
 
   <label for="phone">Téléphone (facultatif)</label>
   <input id="phone" type="tel" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.phone" />
 
   <label for="city">Ville</label>
   <input id="city" class="border border-gray-500 bg-white px-2 py-1" [formField]="contactForm.city" />
-  @if (contactForm.city().touched() && contactForm.city().errors()[0]; as error) {
-    <p class="text-red-700">{{ error.message }}</p>
-  }
+  <app-field-error [field]="contactForm.city" />
 
   <button type="submit" class="mt-4 cursor-pointer border border-gray-500 bg-gray-100 py-1">Ajouter</button>
 </form>

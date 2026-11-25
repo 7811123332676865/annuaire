@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormField, FormRoot, email, form, max, min, minLength, required } from '@angular/forms/signals';
+import { FieldError } from '../field-error/field-error';
 import { PeopleService } from '../people.service';
 
 @Component({
-  imports: [FormField, FormRoot],
+  imports: [FieldError, FormField, FormRoot],
   selector: 'app-person-form',
   templateUrl: './person-form.html',
 })
