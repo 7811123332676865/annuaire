@@ -16,6 +16,9 @@ export class PeopleList {
   filters = signal({ search: '', gender: 'all' });
   filtersForm = form(this.filters);
 
+  readonly pageSize = 10;
+  page = signal(1);
+
   visiblePeople = computed(() => {
     const search = this.filters().search.trim().toLowerCase();
     const gender = this.filters().gender;
@@ -23,5 +26,12 @@ export class PeopleList {
       .people()
       .filter((person) => gender === 'all' || person.gender === gender)
       .filter((person) => `${person.name.first} ${person.name.last}`.toLowerCase().includes(search));
+  });
+
+  pageCount = computed(() => Math.max(1, Math.ceil(this.visiblePeople().length / this.pageSize)));
+
+  pagedPeople = computed(() => {
+    const start = (this.page() - 1) * this.pageSize;
+    return this.visiblePeople().slice(start, start + this.pageSize);
   });
 }
